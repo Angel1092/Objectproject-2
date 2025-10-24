@@ -1,0 +1,88 @@
+// Angel Guerra (angel.guerra@malad.us)
+// For CTE Software Development 1
+// Instructor: Mr. Gross
+
+public class Pet {
+    // Attributes
+    String name;
+    String type;
+    int energy;
+
+    // Constructor to initialize attributes
+    public Pet(String name, String type) {
+        this.name = name;
+        this.type = type;
+        this.energy = 100;  // default energy level
+    }
+
+    // Behavior: play reduces energy
+    public void play() {
+        if (energy >= 10) {
+            energy -= 10;
+            System.out.println(name + " the " + type + " played and now has " + energy + " energy.");
+        } else {
+            System.out.println(name + " the " + type + " is too tired to play.");
+        }
+    }
+
+    // Behavior: eat increases energy
+    public void eat() {
+        if (energy < 100) {
+            energy += 15;
+            if (energy > 100) {
+                energy = 100;
+            }
+            System.out.println(name + " the " + type + " ate and now has " + energy + " energy.");
+        } else {
+            System.out.println(name + " the " + type + " is already full of energy.");
+        }
+    }
+
+    // Behavior: sleep restores energy
+    public void sleep() {
+        System.out.println(name + " the " + type + " is sleeping...");
+        energy = 100;
+        System.out.println(name + " woke up refreshed with full energy!");
+    }
+
+    // Method to display current attributes
+    public void showStatus() {
+        System.out.println("Name: " + name + ", Type: " + type + ", Energy: " + energy);
+    }
+
+    // My Main method to create and use objects
+    public static void main(String[] args) {
+        // Create three Pet objects
+        Pet pet1 = new Pet("Rex", "Dog");
+        Pet pet2 = new Pet("Mittens", "Cat");
+        Pet pet3 = new Pet("Nemo", "Fish");
+
+        // This will show initial status
+        System.out.println("=== Initial Pet Status ===");
+        pet1.showStatus();
+        pet2.showStatus();
+        pet3.showStatus();
+
+        // Use behaviors
+        System.out.println("\n=== Pets Playing ===");
+        pet1.play();
+        pet2.play();
+        pet3.play();
+
+        System.out.println("\n=== Pets Eating ===");
+        pet1.eat();
+        pet2.eat();
+        pet3.eat();
+
+        System.out.println("\n=== Pets Sleeping ===");
+        pet1.sleep();
+        pet2.sleep();
+        pet3.sleep();
+
+        // Final status
+        System.out.println("\n=== Final Pet Status ===");
+        pet1.showStatus();
+        pet2.showStatus();
+        pet3.showStatus();
+    }
+}
